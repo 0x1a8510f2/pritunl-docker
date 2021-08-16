@@ -10,8 +10,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  # ${{ github.repository }}
-  IMAGE_NAME: trslimey/pritun;
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
@@ -32,8 +31,7 @@ jobs:
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
           registry: ${{ env.REGISTRY }}
-          # ${{ github.actor }}
-          username: trslimey
+          username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
